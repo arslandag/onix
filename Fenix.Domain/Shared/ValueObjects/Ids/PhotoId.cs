@@ -1,0 +1,15 @@
+namespace Fenix.Domain.Shared.ValueObjects.Ids;
+
+public record PhotoId
+{
+    private PhotoId(Guid value)
+    {
+        Value = value;
+    }
+    
+    public Guid Value { get; init; }
+
+    public static PhotoId NewUserId() => new(Guid.NewGuid());
+    public static PhotoId Empty() => new(Guid.Empty);
+    public static PhotoId Create(Guid id) => new(id);
+}
