@@ -1,5 +1,5 @@
 namespace Fenix.Domain.ValueObjects;
 
-public record Description
+public abstract class Block
 {
 }

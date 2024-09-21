@@ -10,8 +10,8 @@ public record DataSolution
         Answer = answer;
     }
 
-    public string Question { get; init; }
-    public string Answer { get; init; }
+    public string Question { get; }
+    public string Answer { get; }
 
     public static Result<DataSolution> Create(string question, string answer)
     {

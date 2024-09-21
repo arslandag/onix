@@ -18,11 +18,11 @@ public record Address
         Index = index;
     }
 
-    public string Country { get; init; }
-    public string City { get; init; }
-    public string Street { get; init; }
-    public string Build { get; init;}
-    public string Index { get; init;}
+    public string Country { get; }
+    public string City { get; }
+    public string Street { get; }
+    public string Build { get; }
+    public string Index { get; }
 
     public static Result<Address> Create(
         string country,

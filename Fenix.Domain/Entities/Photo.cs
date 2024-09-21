@@ -1,12 +1,15 @@
 using CSharpFunctionalExtensions;
 using Fenix.Domain.Shared.ValueObjects.Ids;
-using Path = Fenix.Domain.ValueObjects.Path;
+using Path = Fenix.Domain.SharedObjects.Path;
 
-namespace Fenix.Domain.Companies;
+namespace Fenix.Domain.Entities;
 
 public class Photo : Shared.Entity<PhotoId>
 {
-    private Photo(PhotoId id,Path path, bool isMain) : base(id)
+    private Photo(
+        PhotoId id,
+        Path path,
+        bool isMain) : base(id)
     {
         Path = path;
         IsMain = isMain;
@@ -15,7 +18,10 @@ public class Photo : Shared.Entity<PhotoId>
     public Path Path { get; private set; }
     public bool IsMain { get; private set; }
 
-    public static Result<Photo> Create(PhotoId id,Path path, bool isMain)
+    public static Result<Photo> Create (
+        PhotoId id,
+        Path path,
+        bool isMain)
     {
         return new Photo(id, path, isMain);
     }

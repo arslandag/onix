@@ -1,12 +1,10 @@
 using CSharpFunctionalExtensions;
-using Fenix.Domain.Companies;
 using Fenix.Domain.Shared;
-using Fenix.Domain.Shared.ValueObjects;
 using Fenix.Domain.Shared.ValueObjects.Ids;
+using Fenix.Domain.SharedObjects;
 using Fenix.Domain.ValueObjects;
-using Fenix.Domain.WebSites;
 
-namespace Fenix.Domain.Users;
+namespace Fenix.Domain.Entities;
 
 public class User : Shared.Entity<UserId>
 {

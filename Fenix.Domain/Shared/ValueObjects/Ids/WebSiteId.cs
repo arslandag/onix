@@ -7,7 +7,7 @@ public record WebSiteId
         Value = value;
     }
     
-    public Guid Value { get; init; }
+    public Guid Value { get; }
 
     public static WebSiteId NewUserId() => new(Guid.NewGuid());
     public static WebSiteId Empty() => new(Guid.Empty);

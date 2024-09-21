@@ -1,4 +1,4 @@
-namespace Fenix.Domain.Companies;
+namespace Fenix.Domain.SharedObjects;
 
 public enum DayOfWeek
 {

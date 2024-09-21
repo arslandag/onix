@@ -1,6 +1,7 @@
 using CSharpFunctionalExtensions;
+using DayOfWeek = Fenix.Domain.SharedObjects.DayOfWeek;
 
-namespace Fenix.Domain.Companies;
+namespace Fenix.Domain.ValueObjects;
 
 public record Schedule
 {
@@ -14,9 +15,9 @@ public record Schedule
         EndTime = endTime;
     }
     
-    public DayOfWeek DayOfWeek { get; init; }
-    public string StartTime { get; init; }
-    public string EndTime { get; init; }
+    public DayOfWeek DayOfWeek { get; }
+    public string StartTime { get; }
+    public string EndTime { get; }
 
     public static Result<Schedule> Create(
         DayOfWeek dayOfWeek,

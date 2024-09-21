@@ -7,7 +7,7 @@ public record CompanyId
         Value = value;
     }
     
-    public Guid Value { get; init; }
+    public Guid Value { get; }
 
     public static CompanyId NewUserId() => new(Guid.NewGuid());
     public static CompanyId Empty() => new(Guid.Empty);
