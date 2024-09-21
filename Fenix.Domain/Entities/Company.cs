@@ -13,12 +13,18 @@ public class Company : Shared.Entity<CompanyId>
         Name name,
         Industry industry,
         Phone companyPhone,
-        IEnumerable<Social> socialMedia) : base(id)
+        IEnumerable<Social> socialMedia,
+        IEnumerable<Category> productCategories,
+        IEnumerable<Category> serviceCategories,
+        IEnumerable<Category> employeeCategories) : base(id)
     {
         Name = name;
         Industry = industry;
         CompanyPhone = companyPhone;
         _socialMedias = socialMedia.ToList();
+        _productCategories = productCategories.ToList();
+        _serviceCategories = serviceCategories.ToList();
+        _employeeCategories = employeeCategories.ToList();
     }
 
     public Name Name { get; private set; }
@@ -27,19 +33,34 @@ public class Company : Shared.Entity<CompanyId>
 
     public IReadOnlyList<Social> SocialMedias => _socialMedias;
     private readonly List<Social> _socialMedias = [];
+    
+    public IReadOnlyList<Category> ProductCategories => _productCategories;
+    private readonly List<Category> _productCategories = [];
+    
+    public IReadOnlyList<Category> ServiceCategories => _serviceCategories;
+    private readonly List<Category> _serviceCategories = [];
+    
+    public IReadOnlyList<Category> EmployeeCategories => _employeeCategories;
+    private readonly List<Category> _employeeCategories = [];
 
     public static Result<Company, Error> Create(
         CompanyId id,
         Name name,
         Industry industry,
         Phone companyPhone,
-        IEnumerable<Social> socialMedia)
+        IEnumerable<Social> socialMedia,
+        IEnumerable<Category> productCategories,
+        IEnumerable<Category> serviceCategories,
+        IEnumerable<Category> employeeCategories)
     {
         return new Company(
             id,
             name,
             industry,
             companyPhone,
-            socialMedia);
+            socialMedia,
+            productCategories,
+            serviceCategories,
+            employeeCategories);
     }
 }

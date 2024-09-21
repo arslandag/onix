@@ -4,7 +4,7 @@ namespace Fenix.Domain.ValueObjects;
 
 public class Configuration
 {
-    public Configuration(
+    private Configuration(
         IEnumerable<Block> blocks,
         Appearance appearance)
     {
@@ -15,7 +15,7 @@ public class Configuration
     public IReadOnlyList<Block> Blocks => _blocks;
     private readonly List<Block> _blocks = [];
     
-    public Appearance Appearance { get; private set; }    
+    public Appearance Appearance { get; }    
 
     public static Result<Configuration> Create(
         IEnumerable<Block> blocks,

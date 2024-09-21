@@ -7,26 +7,26 @@ namespace Fenix.Domain.ValueObjects;
 public class ProductBlock : Block
 {
     private ProductBlock(
-        Name name,
+        Title title,
         ShowStatus showStatus,
         IEnumerable<Product> products)
     {
-        Name = name;
+        Title = title;
         ShowStatus = showStatus;
         _products = products.ToList();
     }
 
-    public Name Name { get; private set; }
-    public ShowStatus ShowStatus { get; private set; }
+    public Title Title { get; }
+    public ShowStatus ShowStatus { get; }
     
     public IReadOnlyList<Product> Products => _products;
     private readonly List<Product> _products = [];
 
     public static Result<ProductBlock> Create(
-        Name name,
+        Title title,
         ShowStatus showStatus,
         IEnumerable<Product> products)
     {
-        return new ProductBlock(name, showStatus, products);
+        return new ProductBlock(title, showStatus, products);
     }
 }

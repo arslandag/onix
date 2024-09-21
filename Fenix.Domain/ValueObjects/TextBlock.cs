@@ -1,31 +1,38 @@
 using CSharpFunctionalExtensions;
+using Fenix.Domain.Entities;
 using Fenix.Domain.SharedObjects;
 
 namespace Fenix.Domain.ValueObjects;
 
 public class TextBlock : Block
 {
-    private TextBlock(Name name,
+    private TextBlock(
+        Title title,
         Description description,
+        Photo photo,
         ShowStatus showStatus)
     {
-        Name = name;
+        Title = title;
         Description = description;
+        Photo = photo;
         ShowStatus = showStatus;
     }
 
-    public Name Name { get; private set; }
-    public Description Description { get; private set; }
-    public ShowStatus ShowStatus { get; private set; }
+    public Title Title { get; }
+    public Description Description { get; }
+    public Photo Photo { get; }
+    public ShowStatus ShowStatus { get; }
     
     public static Result<TextBlock> Create(
-        Name name,
+        Title title,
         Description description,
+        Photo photo,
         ShowStatus showStatus)
     {
         return new TextBlock(
-            name,
+            title,
             description,
+            photo,
             showStatus);
     }
 }
