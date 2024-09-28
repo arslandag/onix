@@ -9,7 +9,7 @@ public record PhotoId
     
     public Guid Value { get;}
 
-    public static PhotoId NewUserId() => new(Guid.NewGuid());
+    public static PhotoId NewId() => new(Guid.NewGuid());
     public static PhotoId Empty() => new(Guid.Empty);
     public static PhotoId Create(Guid id) => new(id);
 }

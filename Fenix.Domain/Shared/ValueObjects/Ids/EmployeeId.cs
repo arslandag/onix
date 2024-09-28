@@ -9,7 +9,7 @@ public class EmployeeId
     
     public Guid Value { get; }
 
-    public static EmployeeId NewUserId() => new(Guid.NewGuid());
+    public static EmployeeId NewId() => new(Guid.NewGuid());
     public static EmployeeId Empty() => new(Guid.Empty);
     public static EmployeeId Create(Guid id) => new(id);
 }

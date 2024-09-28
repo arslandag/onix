@@ -1,6 +1,6 @@
 using CSharpFunctionalExtensions;
 using Fenix.Domain.Shared.ValueObjects.Ids;
-using Fenix.Domain.SharedObjects;
+using Fenix.Domain.ValueObjects;
 
 namespace Fenix.Domain.Entities;
 
@@ -9,23 +9,20 @@ public class Product : Shared.Entity<ProductId>
     private Product(
         ProductId id,
         Name name,
-        Description description,
-        Category category,
-        Price price,
-        IEnumerable<Photo> productPhotos) : base(id)
+        Description? description,
+        Price? price,
+        Link? link) : base(id)
     {
         Name = name;
         Description = description;
-        Category = category;
         Price = price;
-        _productPhotos = productPhotos.ToList();
+        Link = link;
     }
     
-    public Name Name {get;}
-    public Description Description { get; }
-
-    public Price Price { get; }
-    public Category Category { get; }
+    public Name Name {get; private set; }
+    public Description? Description { get; private set; }
+    public Price? Price { get; private set; }
+    public Link? Link { get; private set; }
     
     public IReadOnlyList<Photo> ProductPhotos => _productPhotos ;
     private readonly List<Photo> _productPhotos = [];
@@ -33,17 +30,15 @@ public class Product : Shared.Entity<ProductId>
     public static Result<Product> Create(
         ProductId id,
         Name name,
-        Description description,
-        Category category,
-        Price price,
-        IEnumerable<Photo> productPhotos)
+        Description? description,
+        Price? price,
+        Link? link)
     {
         return new Product(
             id,
             name,
             description,
-            category,
             price,
-            productPhotos); 
+            link); 
     }
 }

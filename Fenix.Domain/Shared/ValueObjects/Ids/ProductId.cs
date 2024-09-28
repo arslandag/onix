@@ -9,7 +9,7 @@ public class ProductId
     
     public Guid Value { get;}
 
-    public static ProductId NewUserId() => new(Guid.NewGuid());
+    public static ProductId NewId() => new(Guid.NewGuid());
     public static ProductId Empty() => new(Guid.Empty);
     public static ProductId Create(Guid id) => new(id);
 }

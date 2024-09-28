@@ -1,6 +1,6 @@
 using CSharpFunctionalExtensions;
 using Fenix.Domain.Shared.ValueObjects.Ids;
-using Fenix.Domain.SharedObjects;
+using Fenix.Domain.Users.ValueObjects;
 using Fenix.Domain.ValueObjects;
 
 namespace Fenix.Domain.Entities;
@@ -9,34 +9,34 @@ public class Employee : Shared.Entity<EmployeeId>
 {
     private Employee(
         EmployeeId id,
-        FullName fullName,
+        EmployeeFullName fullName,
         Description description,
         Photo employeePhoto,
-        Category category) : base(id)
+        Link? link) : base(id)
     {
         FullName = fullName;
         Description = description;
         EmployeePhoto = employeePhoto;
-        Category = category;
+        Link = link;
     }
 
-    public FullName FullName { get; private set; }
-    public Description Description { get; private set; }
-    public Photo EmployeePhoto { get; private set; }
-    public Category Category { get; private set; }
+    public EmployeeFullName FullName { get; private set; }
+    public Description? Description { get; private set; }
+    public Photo? EmployeePhoto { get; private set; }
+    public Link? Link { get; private set; } 
 
     public static Result<Employee> Create(
         EmployeeId id,
-        FullName fullName,
+        EmployeeFullName fullName,
         Description description,
         Photo employeePhoto,
-        Category category)
+        Link? link)
     {
         return new Employee(
             id,
             fullName,
             description,
             employeePhoto,
-            category);
+            link);
     }
 }
